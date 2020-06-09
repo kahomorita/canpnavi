@@ -55,6 +55,7 @@
         <div class="swiper-slide"><img src="img (1)/main.jpg" alt=""></div>
         <div class="swiper-slide"><img src="img (1)/main.jpg" alt=""></div>
       </div>
+      <div class="swiper-pagination"></div>
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
@@ -127,11 +128,21 @@
   <script src="js/swiper.min.js"></script>
   <script>
     var swiper = new Swiper('.swiper-container', {
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  }
-});
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      loop: true,
+      autoplay: {
+        delay: 1000,
+        disableOnInteraction: true
+      },
+      speed: 1000,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
   </script>
 </body>
 

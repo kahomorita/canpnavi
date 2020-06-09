@@ -61,7 +61,7 @@
     </div>
   </header>
 
-  <div class="main">
+  <div class="main animeLeft" data-trigger>
     <h2>items</h2>
     <div class="main_title">商品一覧</div>
     <div class="items">
@@ -87,7 +87,7 @@
 
     <h2>news</h2>
     <div id="news" class="main_title">お知らせ</div>
-    <div class="news">
+    <div class="news animeLeft" data-trigger>
       <ul>
         <li>2018.12.24 <a href="">新着情報がはいります。</a></li>
         <li>2018.12.24 <a href="">新着情報がはいります。</a></li>
@@ -127,7 +127,23 @@
 
   <script src="js/swiper.min.js"></script>
   <script src="js/smooth-scroll.polyfills.min.js"></script>
+  <script src="js/ScrollTrigger.min.js"></script>
   <script>
+    // ＝＝＝＝スクロールトリガー＝＝＝＝
+    const trigger = new ScrollTrigger.default()
+    trigger.add('[data-trigger]',
+      {
+        once: true,
+        offset: {
+          viewport: {
+            y: (trigger, frame, direction) => {
+              return trigger.visible ? 0 : .3
+            }
+          }
+        },
+      },
+    )
+      // ＝＝＝＝スムーススクロール＝＝＝＝
     var scroll = new SmoothScroll('a[href*="#"]', {
       speed: 1000,
     });
